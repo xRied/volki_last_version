@@ -4,38 +4,32 @@
 
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-
         android:maxSdkVersion="18" />
-    <permission
-        android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission
-        android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
 
     <application
-
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_volk"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_volk_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".MainActivity"
-            >
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".start"
-             />
-        <activity android:name=".start_vibor"
-            />
+        <activity android:name=".start" />
+        <activity android:name=".start_vibor" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -47,8 +41,8 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".filters_activity"
-           ></activity>
+        <activity android:name=".filters_activity" />
+        <activity android:name=".nerezkoe"></activity>
     </application>
 
 </manifest>

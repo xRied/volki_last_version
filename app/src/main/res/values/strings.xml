@@ -3,5 +3,9 @@
     <string name="povoroti">Повороты</string>
     <string name="back">назад</string>
     <string name="save">сохр</string>
+    <string name="save_image">Сохранение изображения</string>
+    <string name="Save_image_question">Сохранить изображение?</string>
+    <string name="save_success">Сохранение завершено</string>
+    <string name="back_question">Сохранить изображение перед выходом?</string>
 
 </resources>

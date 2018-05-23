@@ -24,7 +24,7 @@ public class start_vibor extends AppCompatActivity implements View.OnClickListen
 
     static final int GALLERY_REQUEST = 1;
     static final int REQUEST_TAKE_PHOTO = 1;
-
+    public File photoFile = null;
     static public Bitmap bitmap1;
     static public int cam;
     static public String mCurrentPhotoPath;
@@ -45,7 +45,7 @@ public class start_vibor extends AppCompatActivity implements View.OnClickListen
     private File createImageFile() throws IOException {
 
         String imageFileName = "JPEG_" + System.currentTimeMillis() + "_";
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File storageDir = this.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(imageFileName, ".jpg", storageDir);
         mCurrentPhotoPath = image.getAbsolutePath();
         Log.d("path=",mCurrentPhotoPath);
@@ -55,12 +55,15 @@ public class start_vibor extends AppCompatActivity implements View.OnClickListen
     public static Bitmap BitmapGetter(){
         return bitmap1;
 }
+
     public static int CamGetter(){
         return cam;
     }
+
     public static String PathGetter(){
         return mCurrentPhotoPath;
     }
+
 
 
     public void onClick(View view) {
@@ -74,7 +77,7 @@ public class start_vibor extends AppCompatActivity implements View.OnClickListen
 
                 if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
 
-                    File photoFile = null;
+
 
 
                     try {
@@ -132,15 +135,22 @@ public class start_vibor extends AppCompatActivity implements View.OnClickListen
         return picturePath;
     }
 
+    public void refreshGallery(File file){
+        Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+        intent.setData(Uri.fromFile(file));
+        sendBroadcast(intent);
+    }
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (cam == 1) {
 
             if (resultCode == RESULT_OK) {
                 Uri selectedImage = photoUri;
-
+                refreshGallery(photoFile);
 
                 try {
+
                     bitmap1 = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
 
                 } catch (IOException e) {
@@ -177,14 +187,10 @@ public class start_vibor extends AppCompatActivity implements View.OnClickListen
                         startActivity(intent2);
                     }
                     else if (resultCode == RESULT_CANCELED){
-
                     }
             }
-
         }
 
-
     }
-
 
 }

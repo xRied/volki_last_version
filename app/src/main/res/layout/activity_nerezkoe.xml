@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/buttonshape"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:text="назад"
+            android:textSize="13sp"
+
+            android:textColor="#000000"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button_save"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/buttonshape"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:text="ок"
+            android:textSize="13sp"
+
+            android:layout_alignParentRight="true"
+            android:textColor="#000000"
+
+
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:id="@+id/imageView"
+            android:layout_width="383dp"
+            android:layout_height="407dp"
+            app:srcCompat="?android:attr/actionModeCutDrawable" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="7">
+
+        <Button
+            android:id="@+id/prosmotr_btn"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="90dp"
+            android:background="@drawable/buttonshape"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:text="просмотр"
+            android:textSize="15sp"
+            android:layout_centerHorizontal="true"
+            android:textColor="#000000"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="5dp"
+            android:text="Эффект"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+
+            android:layout_marginTop="5dp"
+            android:text="Радиус"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="41dp"
+            android:layout_marginTop="5dp"
+            android:text="Порог"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/effect"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="33dp"
+            android:ems="12"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/radius"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="33dp"
+            android:ems="12"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/porog"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="37dp"
+            android:layout_marginTop="33dp"
+            android:ems="15"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="67dp"
+            android:text="0-500"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+
+            android:layout_marginTop="67dp"
+            android:text="1-20"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="48dp"
+            android:layout_marginTop="67dp"
+            android:text="0-255"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+</LinearLayout>

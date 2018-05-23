@@ -56,7 +56,7 @@ public class filters_activity extends AppCompatActivity {
             public void onClick(View view) {
                 if (!is_asynk_go){
                     Intent answerIntent = new Intent();
-                    answerIntent.putExtra("Result","no");
+                    answerIntent.putExtra("Result_filter","no");
                     setResult(RESULT_OK, answerIntent);
                     finish();
                 }
@@ -69,7 +69,7 @@ public class filters_activity extends AppCompatActivity {
             public void onClick(View view) {
                 if (!is_asynk_go){
                     Intent answerIntent = new Intent();
-                    answerIntent.putExtra("Result","ok");
+                    answerIntent.putExtra("Result_filter","ok");
                     setResult(RESULT_OK, answerIntent);
                     finish();
                 }
