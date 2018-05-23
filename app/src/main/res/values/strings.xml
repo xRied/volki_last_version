@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">volk322</string>
+    <string name="povoroti">Повороты</string>
+    <string name="back">назад</string>
+    <string name="save">сохр</string>
 
 </resources>

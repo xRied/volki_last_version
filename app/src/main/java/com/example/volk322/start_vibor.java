@@ -1,7 +1,9 @@
 package com.example.volk322;
 
+
+import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Environment;
@@ -9,13 +11,13 @@ import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 
 
 public class start_vibor extends AppCompatActivity implements View.OnClickListener {
@@ -25,7 +27,6 @@ public class start_vibor extends AppCompatActivity implements View.OnClickListen
 
     static public Bitmap bitmap1;
     static public int cam;
-    static final int REQUEST_IMAGE_CAPTURE = 1;
     static public String mCurrentPhotoPath;
     static public Uri photoUri;
 
@@ -46,25 +47,23 @@ public class start_vibor extends AppCompatActivity implements View.OnClickListen
         String imageFileName = "JPEG_" + System.currentTimeMillis() + "_";
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(imageFileName, ".jpg", storageDir);
-        // Save a file: path for use with ACTION_VIEW intents
         mCurrentPhotoPath = image.getAbsolutePath();
-
+        Log.d("path=",mCurrentPhotoPath);
         return image;
     }
 
-public static Bitmap BitmapGetter(){
+    public static Bitmap BitmapGetter(){
         return bitmap1;
 }
-public static String PathGetter(){
-        return mCurrentPhotoPath;
-    }
-public static int CamGetter(){
+    public static int CamGetter(){
         return cam;
     }
+    public static String PathGetter(){
+        return mCurrentPhotoPath;
+    }
+
 
     public void onClick(View view) {
-
-
 
         switch (view.getId()) {
 
@@ -76,6 +75,8 @@ public static int CamGetter(){
                 if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
 
                     File photoFile = null;
+
+
                     try {
                         photoFile = createImageFile();
                     } catch (IOException ex) {
@@ -94,11 +95,16 @@ public static int CamGetter(){
                 break;
 
             case R.id.gal_btn:
+
                 cam=2;
+
+
 
                 Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
                 photoPickerIntent.setType("image/*");
-                startActivityForResult(photoPickerIntent, GALLERY_REQUEST);
+
+
+                    startActivityForResult(photoPickerIntent, REQUEST_TAKE_PHOTO);
 
 
                 break;
@@ -109,27 +115,48 @@ public static int CamGetter(){
 
     }
 
+    public static String URIToPath(Context context, Uri imageUri) {
+        String[] filePathColumn = {MediaStore.Images.Media.DATA};
+        Cursor cursor = context.getContentResolver().query(imageUri, filePathColumn, null, null, null);
+
+        String picturePath=null;
+        if (cursor != null) {
+
+            cursor.moveToFirst();
+            int columnIndex = 0;
+            columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+            picturePath = cursor.getString(columnIndex);
+
+            cursor.close();
+        }
+        return picturePath;
+    }
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (cam == 1) {
 
-           // if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-          //      Bundle extras = data.getExtras();
-          //      bitmap1 = (Bitmap) extras.get("data");
-         //   }
-            Uri selectedImage = photoUri;
-            try {
+            if (resultCode == RESULT_OK) {
+                Uri selectedImage = photoUri;
 
-                bitmap1 = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
+                try {
+                    bitmap1 = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
                 Intent intent2 = new Intent(this, start.class);
                 startActivity(intent2);
+            }
+            else if (resultCode == RESULT_CANCELED){
 
+            }
         }
         else if (cam == 2) {
+
+
 
             super.onActivityResult(requestCode, resultCode, data);
 
@@ -137,18 +164,26 @@ public static int CamGetter(){
                 case GALLERY_REQUEST:
                     if (resultCode == RESULT_OK) {
                         Uri selectedImage = data.getData();
-                        try {
 
+                        mCurrentPhotoPath= URIToPath(this,selectedImage);
+
+                        try {
                             bitmap1 = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
 
+                        Intent intent2 = new Intent(this, start.class);
+                        startActivity(intent2);
+                    }
+                    else if (resultCode == RESULT_CANCELED){
+
                     }
             }
-            Intent intent2 = new Intent(this, start.class);
-            startActivity(intent2);
+
         }
+
+
     }
 
 
