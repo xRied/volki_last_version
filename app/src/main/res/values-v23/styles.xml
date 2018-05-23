@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="volchati" parent="android:Theme.Material.Light.NoActionBar.Fullscreen">
+        <item name="android:colorAccent">@color/accent_material_light_1</item>
+        <item name="android:navigationBarColor">@android:color/darker_gray</item>
+        <item name="android:statusBarColor">@android:color/darker_gray</item>
+        <item name="android:colorForeground">@color/foreground_material_light</item>
+        <item name="android:textColorPrimaryInverse">?android:attr/colorBackground</item>
+        <item name="android:textColorSecondary">@android:color/background_dark</item>
+        <item name="android:textColorSecondaryInverse">?android:attr/colorBackgroundFloating</item>
+        <item name="android:windowBackground">@color/colorBackground</item>
+        <item name="android:textColorPrimary">@android:color/background_dark</item>
+        <item name="android:colorPrimaryDark">@color/primary_dark_material_light</item>
+    </style>
+</resources>
