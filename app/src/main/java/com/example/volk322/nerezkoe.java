@@ -13,6 +13,7 @@ import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -81,11 +82,13 @@ public class nerezkoe extends AppCompatActivity {
             public void onClick(View view) {
 
 
+
                 int k=3;
                 if (radius.getText().toString().equals(""))
                 {
                     k--;
                 }
+
                 if (amount.getText().toString().equals(""))
                 {
                     k--;
@@ -95,24 +98,30 @@ public class nerezkoe extends AppCompatActivity {
                     k--;
                 }
                 if (k==3) {
-                    if (!is_asynk_go){
-                        rad=Integer.parseInt(radius.getText().toString());
-                        am=Integer.parseInt(amount.getText().toString())/100;
-                        th=Integer.parseInt(threshold.getText().toString());
-                        NerezTask task = new NerezTask();
-                        task.execute(start.BitmapGetter());
+
+                    rad=Integer.parseInt(radius.getText().toString());
+                    am=Integer.parseInt(amount.getText().toString())/100;
+                    th=Integer.parseInt(threshold.getText().toString());
+                    int am_prov=Integer.parseInt(amount.getText().toString());
+
+                    if (!is_asynk_go) {
+                        if ((rad < 21 && rad > 0) && (am_prov > -1 && am_prov < 501) && (th > -1 && th < 256)) {
+
+                            NerezTask task = new NerezTask();
+                            task.execute(start.BitmapGetter());
+                        } else {
+                            Toast.makeText(nerezkoe.this,"Недопустимое значение",Toast.LENGTH_SHORT).show();
+
+                        }
                     }
-                    else {
-                        Toast.makeText(nerezkoe.this,"Процесс ещё идёт",Toast.LENGTH_SHORT).show();
+                    else{
+                        Toast.makeText(nerezkoe.this, "Процесс ещё идёт", Toast.LENGTH_SHORT).show();
                     }
 
                 }
                 else {
                     Toast.makeText(nerezkoe.this,"Не все данные введены",Toast.LENGTH_SHORT).show();
                 }
-
-
-
 
 
             }

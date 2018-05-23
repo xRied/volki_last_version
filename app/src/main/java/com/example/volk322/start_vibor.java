@@ -39,7 +39,6 @@ public class start_vibor extends AppCompatActivity implements View.OnClickListen
         gal_btn.setOnClickListener(this);
         cam_btn.setOnClickListener(this);
 
-
     }
 
     private File createImageFile() throws IOException {
