@@ -44,11 +44,14 @@ public class start extends AppCompatActivity implements View.OnClickListener {
         Button back_btn = (Button) findViewById(R.id.button_back);
         Button back_save = (Button) findViewById(R.id.button_save);
         Button nerezk_btn = (Button) findViewById(R.id.button5);
+        Button povorot_btn = (Button) findViewById(R.id.button);
 
+        povorot_btn.setOnClickListener(this);
         filter_btn.setOnClickListener(this);
         back_btn.setOnClickListener(this);
         back_save.setOnClickListener(this);
         nerezk_btn.setOnClickListener(this);
+
         bitmap0=start_vibor.BitmapGetter();
 
     }
@@ -80,10 +83,16 @@ public class start extends AppCompatActivity implements View.OnClickListener {
 
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.button:
+                Intent intent1 = new Intent(this, povorot.class);
+                last_button="povorot";
+                startActivityForResult(intent1, change);
+                break;
+
             case R.id.button2:
-                Intent intent = new Intent(this, filters_activity.class);
+                Intent intent2 = new Intent(this, filters_activity.class);
                 last_button="filters";
-                startActivityForResult(intent, change);
+                startActivityForResult(intent2, change);
                 break;
 
             case R.id.button_back:
@@ -98,9 +107,9 @@ public class start extends AppCompatActivity implements View.OnClickListener {
                 break;
 
             case R.id.button5:
-                Intent intent2 = new Intent(this, nerezkoe.class);
+                Intent intent3 = new Intent(this, nerezkoe.class);
                 last_button="nerezk";
-                startActivityForResult(intent2, change);
+                startActivityForResult(intent3, change);
                 break;
 
             default:
@@ -235,6 +244,19 @@ public class start extends AppCompatActivity implements View.OnClickListener {
                 if (cha2.equals("ok"))
                 {
                     bitmap0 = nerezkoe.BitmapGetter();
+                    mImageView.setImageBitmap(bitmap0);
+                    izm = true;
+                }
+            }
+
+            if (last_button.equals("povorot")) {
+                String cha2 = data.getStringExtra("Result_povorot");
+                if (cha2.equals("no")) {
+                    mImageView.setImageBitmap(bitmap0);
+                }
+                if (cha2.equals("ok"))
+                {
+                    bitmap0 = povorot.BitmapGetter();
                     mImageView.setImageBitmap(bitmap0);
                     izm = true;
                 }

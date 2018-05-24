@@ -76,12 +76,14 @@
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
         android:layout_weight="8.5">
 
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp">
 
             <Button
                 android:id="@+id/button"
@@ -219,7 +221,7 @@
                 android:layout_height="24dp"
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="10dp"
-                android:text="Фильтры"
+                android:text="@string/filters"
                 android:textAlignment="center"
                 android:textSize="13sp"
                 app:layout_constraintStart_toEndOf="@+id/textView1"
@@ -252,10 +254,10 @@
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="70dp"
-                android:layout_height="24dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="28dp"
-                android:layout_marginTop="10dp"
-                android:text="Маскировка"
+                android:layout_marginTop="2dp"
+                android:text="Нерезкая маскировка"
                 android:textAlignment="center"
                 android:textSize="11sp"
                 app:layout_constraintStart_toEndOf="@+id/textView4"

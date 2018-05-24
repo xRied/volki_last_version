@@ -368,7 +368,6 @@ public class filters_activity extends AppCompatActivity {
             bitmapP = RGBNeg(start.BitmapGetter());
 
 
-
             return bitmapP;
         }
 

@@ -42,7 +42,8 @@
         </provider>
 
         <activity android:name=".filters_activity" />
-        <activity android:name=".nerezkoe"></activity>
+        <activity android:name=".nerezkoe" />
+        <activity android:name=".povorot"></activity>
     </application>
 
 </manifest>

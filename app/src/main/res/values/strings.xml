@@ -7,5 +7,6 @@
     <string name="Save_image_question">Сохранить изображение?</string>
     <string name="save_success">Сохранение завершено</string>
     <string name="back_question">Сохранить изображение перед выходом?</string>
+    <string name="filters">Фильтры</string>
 
 </resources>
