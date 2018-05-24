@@ -55,26 +55,25 @@ public class nerezkoe extends AppCompatActivity {
 
         back_btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-             //   if (!is_asynk_go) {
+                if (!is_asynk_go) {
                     Intent answerIntent = new Intent();
                     answerIntent.putExtra("Result_nerezk", "no");
                     setResult(RESULT_OK, answerIntent);
                     finish();
-              //  } else {
-             //       Toast.makeText(filters_activity.this, "Процесс ещё идёт", Toast.LENGTH_SHORT).show();
-              //  }
+                } else {
+                    Toast.makeText(nerezkoe.this, "Процесс ещё идёт", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         ok_btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-            //    if (!is_asynk_go) {
+                if (!is_asynk_go) {
                     Intent answerIntent = new Intent();
                     answerIntent.putExtra("Result_nerezk", "ok");
                     setResult(RESULT_OK, answerIntent);
                     finish();
-             //   } else {
-              //      Toast.makeText(filters_activity.this, "Процесс ещё идёт", Toast.LENGTH_SHORT).show();
-            //    }
+                } else {     Toast.makeText(nerezkoe.this, "Процесс ещё идёт", Toast.LENGTH_SHORT).show();
+              }
             }
         });
 
@@ -100,7 +99,7 @@ public class nerezkoe extends AppCompatActivity {
                 if (k==3) {
 
                     rad=Integer.parseInt(radius.getText().toString());
-                    am=Integer.parseInt(amount.getText().toString())/100;
+                    am=(Integer.parseInt(amount.getText().toString()))/100;
                     th=Integer.parseInt(threshold.getText().toString());
                     int am_prov=Integer.parseInt(amount.getText().toString());
 
