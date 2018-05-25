@@ -40,17 +40,21 @@ public class start extends AppCompatActivity implements View.OnClickListener {
 
         setContentView(R.layout.activity_start);
 
-        Button filter_btn = (Button) findViewById(R.id.button2);
+        Button filter_btn = (Button) findViewById(R.id.button_filter);
         Button back_btn = (Button) findViewById(R.id.button_back);
         Button back_save = (Button) findViewById(R.id.button_save);
-        Button nerezk_btn = (Button) findViewById(R.id.button5);
-        Button povorot_btn = (Button) findViewById(R.id.button);
+        Button nerezk_btn = (Button) findViewById(R.id.button_nerezk);
+        Button povorot_btn = (Button) findViewById(R.id.button_povorot);
+        Button mash_btn = (Button) findViewById(R.id.button_mash);
 
+
+        mash_btn.setOnClickListener(this);
         povorot_btn.setOnClickListener(this);
         filter_btn.setOnClickListener(this);
         back_btn.setOnClickListener(this);
         back_save.setOnClickListener(this);
         nerezk_btn.setOnClickListener(this);
+
 
         bitmap0=start_vibor.BitmapGetter();
 
@@ -83,22 +87,36 @@ public class start extends AppCompatActivity implements View.OnClickListener {
 
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.button:
+            case R.id.button_povorot:
                 Intent intent1 = new Intent(this, povorot.class);
                 last_button="povorot";
                 startActivityForResult(intent1, change);
                 break;
 
-            case R.id.button2:
+            case R.id.button_filter:
                 Intent intent2 = new Intent(this, filters_activity.class);
                 last_button="filters";
                 startActivityForResult(intent2, change);
                 break;
 
+            case R.id.button_mash:
+                Intent intent4 = new Intent(this, mashtab.class);
+                last_button="mash";
+                startActivityForResult(intent4, change);
+                break;
+
+
+
+            case R.id.button_nerezk:
+                Intent intent5 = new Intent(this, nerezkoe.class);
+                last_button="nerezk";
+                startActivityForResult(intent5, change);
+                break;
+
+
             case R.id.button_back:
                 Dialog dialog1= onCreateBackDialog();
                 dialog1.show();
-
                 break;
 
             case R.id.button_save:
@@ -106,11 +124,7 @@ public class start extends AppCompatActivity implements View.OnClickListener {
                 dialog2.show();
                 break;
 
-            case R.id.button5:
-                Intent intent3 = new Intent(this, nerezkoe.class);
-                last_button="nerezk";
-                startActivityForResult(intent3, change);
-                break;
+
 
             default:
                 break;
@@ -261,6 +275,21 @@ public class start extends AppCompatActivity implements View.OnClickListener {
                     izm = true;
                 }
             }
+
+            if (last_button.equals("mash")) {
+                String cha2 = data.getStringExtra("Result_mash");
+                if (cha2.equals("no")) {
+                    mImageView.setImageBitmap(bitmap0);
+                }
+                if (cha2.equals("ok"))
+                {
+                    bitmap0 = mashtab.BitmapGetter();
+                    mImageView.setImageBitmap(bitmap0);
+                    izm = true;
+                }
+            }
+
+
 
         }
         else if (resultCode == RESULT_CANCELED){

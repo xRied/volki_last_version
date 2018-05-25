@@ -43,7 +43,8 @@
 
         <activity android:name=".filters_activity" />
         <activity android:name=".nerezkoe" />
-        <activity android:name=".povorot"></activity>
+        <activity android:name=".povorot" />
+        <activity android:name=".mashtab" />
     </application>
 
 </manifest>

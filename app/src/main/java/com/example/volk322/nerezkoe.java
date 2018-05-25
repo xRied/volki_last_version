@@ -99,12 +99,12 @@ public class nerezkoe extends AppCompatActivity {
                 if (k==3) {
 
                     rad=Integer.parseInt(radius.getText().toString());
-                    am=(Integer.parseInt(amount.getText().toString()))/100;
+                    am=Integer.parseInt(amount.getText().toString());
                     th=Integer.parseInt(threshold.getText().toString());
                     int am_prov=Integer.parseInt(amount.getText().toString());
 
                     if (!is_asynk_go) {
-                        if ((rad < 21 && rad > 0) && (am_prov > -1 && am_prov < 501) && (th > -1 && th < 256)) {
+                        if ((rad < 21 && rad > 0) && (am_prov > 0 && am_prov < 6) && (th > -1 && th < 256)) {
 
                             NerezTask task = new NerezTask();
                             task.execute(start.BitmapGetter());

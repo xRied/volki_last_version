@@ -228,7 +228,7 @@ public class filters_activity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             is_asynk_go = true;
-            Toast.makeText(filters_activity.this,"Фильтрация начилась",Toast.LENGTH_SHORT).show();
+            Toast.makeText(filters_activity.this,"Фильтрация началась",Toast.LENGTH_SHORT).show();
 
         }
 
@@ -350,7 +350,7 @@ public class filters_activity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             is_asynk_go = true;
-            Toast.makeText(filters_activity.this,"Фильтрация начилась",Toast.LENGTH_SHORT).show();
+            Toast.makeText(filters_activity.this,"Фильтрация началась",Toast.LENGTH_SHORT).show();
 
         }
         @Override
@@ -412,7 +412,7 @@ public class filters_activity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             is_asynk_go = true;
-            Toast.makeText(filters_activity.this,"Фильтрация начилась",Toast.LENGTH_SHORT).show();
+            Toast.makeText(filters_activity.this,"Фильтрация началась",Toast.LENGTH_SHORT).show();
 
         }
         @Override
@@ -489,7 +489,7 @@ public class filters_activity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             is_asynk_go = true;
-            Toast.makeText(filters_activity.this,"Фильтрация начилась",Toast.LENGTH_SHORT).show();
+            Toast.makeText(filters_activity.this,"Фильтрация началась",Toast.LENGTH_SHORT).show();
 
         }
 
@@ -558,7 +558,7 @@ public class filters_activity extends AppCompatActivity {
         protected void onPreExecute() {
             is_asynk_go = true;
 
-            Toast.makeText(filters_activity.this,"Фильтрация начилась",Toast.LENGTH_SHORT).show();
+            Toast.makeText(filters_activity.this,"Фильтрация началась",Toast.LENGTH_SHORT).show();
 
         }
 
@@ -639,7 +639,7 @@ public class filters_activity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             is_asynk_go = true;
-            Toast.makeText(filters_activity.this,"Фильтрация начилась",Toast.LENGTH_SHORT).show();
+            Toast.makeText(filters_activity.this,"Фильтрация началась",Toast.LENGTH_SHORT).show();
 
         }
         @Override
@@ -721,7 +721,7 @@ public class filters_activity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             is_asynk_go = true;
-            Toast.makeText(filters_activity.this,"Фильтрация начилась",Toast.LENGTH_SHORT).show();
+            Toast.makeText(filters_activity.this,"Фильтрация началась",Toast.LENGTH_SHORT).show();
 
         }
         @Override
@@ -786,7 +786,7 @@ public class filters_activity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             is_asynk_go = true;
-            Toast.makeText(filters_activity.this,"Фильтрация начилась",Toast.LENGTH_SHORT).show();
+            Toast.makeText(filters_activity.this,"Фильтрация началась",Toast.LENGTH_SHORT).show();
 
         }
 
